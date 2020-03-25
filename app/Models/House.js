@@ -12,7 +12,7 @@ export default class House {
 
   getTemplate(index) {
     return /*html*/ `
-    <div class="col-4 border border-info rounded shadow">
+    <div class="col-4 m-3 border border-info rounded shadow">
     <img class="img-fluid" src="${this.imgUrl}" />
       <h2>${this.bed} bedroom</h2>
       <h2>${this.bath} bath</h2>

@@ -6,7 +6,7 @@ function _drawHouses() {
   let template = ''
   let houses = _store.State.houses
 
-  houses.forEach((car, index) => template += house.getTemplate(index))
+  houses.forEach((house, index) => template += house.getTemplate(index))
   document.getElementById("houses").innerHTML = template
 }
 
@@ -19,6 +19,7 @@ export default class HouseController {
 
 
   create(event) {
+
     event.preventDefault()
     let formData = event.target
     let newHouseObject = {
@@ -34,7 +35,8 @@ export default class HouseController {
 
     _houseService.create(newHouseObject)
     formData.reset()
-    $('#add-house-modal')modal('toggle')
+    // @ts-ignore
+    $('#add-house-modal').modal('toggle')
     _drawHouses()
 
     console.log(newHouseObject)
