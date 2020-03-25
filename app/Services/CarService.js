@@ -1,7 +1,9 @@
 
 
 class CarService {
-
+  constructor() {
+    console.log("car service works")
+  }
 }
 
 
