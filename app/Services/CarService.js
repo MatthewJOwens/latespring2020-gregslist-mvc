@@ -3,6 +3,9 @@ import _store from '../store.js'
 
 
 class CarService {
+  delete(index) {
+    _store.State.cars.splice(index, 1)
+  }
   create(newCarObject) {
     let newCar = new Car(newCarObject)
     _store.State.cars.push(newCar)
