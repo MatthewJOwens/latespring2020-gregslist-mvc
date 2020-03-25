@@ -1,5 +1,15 @@
 import _carService from '../Services/CarService.js'
 
+
+//NOTE we need the element to put them in, access to the array of cars in the store, blank template to add them to, and a template for how they are displayed
+function _drawCars() {
+  let template = ''
+  let cars = 
+
+
+}
+
+
 export default class CarController {
   constructor() {
     console.log("car controller works")
@@ -17,6 +27,9 @@ export default class CarController {
       imgUrl: formData.imgUrl.value,
       description: formData.description.value
     }
+
+    _carService.create(newCarObject)
+
     console.log(newCarObject)
   }
 }
