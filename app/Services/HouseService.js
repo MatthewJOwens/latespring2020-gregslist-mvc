@@ -1,9 +1,44 @@
 import House from "../Models/House.js"
 import _store from '../store.js'
 
+
+// @ts-ignore
+let _api = axios.create({
+  baseURL: '//bcw-sandbox.herokuapp.com/api/houses',
+  timeout: 3000
+})
+
 class HouseService {
-  delete(index) {
-    _store.State.houses.splice(index, 1)
+  bid(houseId) {
+    let foundHouse = _store.State.houses.find(house => house.id == houseId)
+    if (foundHouse) {
+      foundHouse.price += 100
+      _api.put(houseId, foundHouse)
+        .then(res => {
+          console.log(res.data);
+          this.getHouses()
+        })
+        .catch(err => console.error(err))
+    }
+  }
+
+  getHouses() {
+    _api.get()
+      .then(res => {
+        console.log(res.data);
+
+      })
+      .catch(err => console.error(err)
+      )
+  }
+
+  delete(houseId) {
+    _api.delete(houseId)
+      .then(res => {
+        console.log(res.data);
+        this.getHouses()
+      })
+      .catch(err => console.error(err))
   }
 
   create(newHouseObject) {
