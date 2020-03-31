@@ -25,8 +25,9 @@ class HouseService {
   getHouses() {
     _api.get()
       .then(res => {
-        console.log(res.data);
-
+        console.log(res.data.data);
+        let houses = res.data.data.map(rawHouseData => new House(rawHouseData))
+        _store.commit('houses', houses)
       })
       .catch(err => console.error(err)
       )
@@ -49,7 +50,7 @@ class HouseService {
 
   constructor() {
     console.log("house service works");
-
+    this.getHouses()
   }
 }
 

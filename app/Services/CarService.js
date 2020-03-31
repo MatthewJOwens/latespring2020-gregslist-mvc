@@ -73,7 +73,6 @@ class CarService {
       .catch(err => console.error(err))
   }
   constructor() {
-    console.log("car service works")
     this.getCars()
   }
 }

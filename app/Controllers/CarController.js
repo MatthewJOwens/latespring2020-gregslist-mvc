@@ -14,7 +14,6 @@ function _drawCars() {
 
 export default class CarController {
   constructor() {
-    console.log("car controller works")
     _store.subscribe('cars', _drawCars)
   }
 
