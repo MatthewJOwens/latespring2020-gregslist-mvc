@@ -13,7 +13,7 @@ function _drawHouses() {
 export default class HouseController {
   constructor() {
     console.log("house controller works");
-    _drawHouses()
+    _store.subscribe('houses', _drawHouses)
 
   }
 
@@ -23,10 +23,9 @@ export default class HouseController {
     event.preventDefault()
     let formData = event.target
     let newHouseObject = {
-      bed: formData.bed.value,
-      bath: formData.bath.value,
+      bedrooms: formData.bedrooms.value,
+      bathrooms: formData.bathrooms.value,
       year: formData.year.value,
-      sqft: formData.sqft.value,
       floors: formData.floors.value,
       price: formData.price.value,
       imgUrl: formData.imgUrl.value,
@@ -37,13 +36,15 @@ export default class HouseController {
     formData.reset()
     // @ts-ignore
     $('#add-house-modal').modal('toggle')
-    _drawHouses()
 
     console.log(newHouseObject)
   }
 
-  delete(index) {
-    _houseService.delete(index)
-    _drawHouses()
+  delete(houseId) {
+    _houseService.delete(houseId)
+  }
+
+  bid(houseId) {
+    _houseService.bid(houseId)
   }
 }
