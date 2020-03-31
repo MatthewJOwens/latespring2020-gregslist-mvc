@@ -15,7 +15,7 @@ function _drawCars() {
 export default class CarController {
   constructor() {
     console.log("car controller works")
-    _drawCars()
+    _store.subscribe('cars', _drawCars)
   }
 
 
@@ -35,15 +35,18 @@ export default class CarController {
     formData.reset()
     // @ts-ignore
     $('#add-car-modal').modal('toggle')
-    _drawCars()
+
 
     console.log(newCarObject)
   }
 
-  delete(index) {
-    _carService.delete(index)
-    _drawCars()
+  delete(carId) {
+    _carService.delete(carId)
+
   }
 
+  bid(carId) {
+    _carService.bid(carId)
+  }
 
 }
