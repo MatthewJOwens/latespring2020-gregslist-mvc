@@ -6,7 +6,7 @@ function _drawHouses() {
   let template = ''
   let houses = _store.State.houses
 
-  houses.forEach((house, index) => template += house.getTemplate(index))
+  houses.forEach(house => template += house.Template)
   document.getElementById("houses").innerHTML = template
 }
 

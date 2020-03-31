@@ -2,6 +2,7 @@ import Car from "../Models/Car.js"
 import _store from '../store.js'
 
 
+// @ts-ignore
 let _api = axios.create({
   baseURL: '//bcw-sandbox.herokuapp.com/api/cars',
   timeout: 3000

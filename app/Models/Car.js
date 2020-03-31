@@ -1,5 +1,6 @@
 export default class Car {
   constructor(data) {
+    this.id = data._id
     this.make = data.make
     this.model = data.model
     this.year = data.year
@@ -8,7 +9,7 @@ export default class Car {
     this.description = data.description || "No description provided."
   }
 
-  getTemplate(index) {
+  get Template() {
     return /*html*/ `
     <div class="col-4 m-3 border border-info rounded shadow">
       <h1>Make: ${this.make}</h1>

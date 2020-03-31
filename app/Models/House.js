@@ -10,7 +10,7 @@ export default class House {
     this.description = data.description || "No description provided."
   }
 
-  getTemplate(index) {
+  get Template() {
     return /*html*/ `
     <div class="col-4 m-3 border border-info rounded shadow">
     <img class="img-fluid" src="${this.imgUrl}" />
@@ -19,7 +19,7 @@ export default class House {
       <h5>${this.floors} floor(s)</h5>
       <h5>Year built: ${this.year}</h5>
       <h5>Price: ${this.price}</h5>
-      <button class="btn btn-danger btn-block" onclick="app.carController.delete(${index})">Delete</button>
+      <button class="btn btn-danger btn-block" onclick="app.carController.delete(${this.id})">Delete</button>
     </div>`
   }
 
