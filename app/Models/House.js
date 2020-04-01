@@ -20,6 +20,7 @@ export default class House {
       <h5>Year built: ${this.year}</h5>
       <h5>Price: ${this.price}</h5>
       <button class="btn btn-danger btn-block" onclick="app.carController.delete(${this.id})">Delete</button>
+      <button class="btn btn-success btn-block" onclick="app.carController.delete(${this.id})">Bid</button>
     </div>`
   }
 
